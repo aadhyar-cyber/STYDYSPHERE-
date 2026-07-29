@@ -1,0 +1,14 @@
+name: study_sphere
+description: A modern Flutter app for AI-powered studying and productivity.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

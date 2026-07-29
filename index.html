@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>StudySphere – AI Study Group & Productivity Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="top-nav">
+            <div class="user-info">
+                <img src="https://i.pravatar.cc/150?img=47" alt="User Avatar" class="avatar">
+                <div>
+                    <h1>Hi, Alex! 👋</h1>
+                    <p class="subtitle">Ready to crush your goals?</p>
+                </div>
+            </div>
+            <button class="icon-btn theme-toggle" id="themeToggleBtn"><i class="fa-solid fa-moon"></i></button>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            
+            <!-- AI Coach Greeting -->
+            <section class="ai-greeting glass-card gradient-border">
+                <div class="ai-icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="ai-text">
+                    <h3>AI Study Coach</h3>
+                    <p id="motivational-quote">"Success is the sum of small efforts, repeated day in and day out."</p>
+                    <button class="btn-primary small-btn">Chat with AI</button>
+                </div>
+            </section>
+
+            <!-- Dashboard Stats -->
+            <section class="dashboard-stats">
+                <div class="stat-card glass-card">
+                    <i class="fa-solid fa-fire text-orange"></i>
+                    <div class="stat-info">
+                        <h4>12 Days</h4>
+                        <span>Study Streak</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-card">
+                    <i class="fa-solid fa-clock text-blue"></i>
+                    <div class="stat-info">
+                        <h4>2.5 hrs</h4>
+                        <span>Study Time Today</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Today's Tasks -->
+            <section class="tasks-section">
+                <div class="section-header">
+                    <h2>Today's Tasks</h2>
+                    <button class="text-btn">See all</button>
+                </div>
+                <ul class="task-list">
+                    <li class="task-item glass-card">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="task-details">
+                            <h4>Science Project - Research</h4>
+                            <span class="tag tag-science">Science</span>
+                        </div>
+                    </li>
+                    <li class="task-item glass-card">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="task-details">
+                            <h4>Math Homework Ch 4</h4>
+                            <span class="tag tag-math">Math</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Upcoming Exams -->
+            <section class="exams-section">
+                <div class="section-header">
+                    <h2>Upcoming Exams</h2>
+                </div>
+                <div class="exam-card glass-card">
+                    <div class="exam-date">
+                        <span class="month">Oct</span>
+                        <span class="day">15</span>
+                    </div>
+                    <div class="exam-details">
+                        <h4>Physics Midterm</h4>
+                        <p>In 3 days • 09:00 AM</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Join Study Group -->
+            <section class="action-section">
+                <button class="btn-primary full-width gradient-bg">
+                    <i class="fa-solid fa-users"></i> Join a Study Group
+                </button>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-calendar-check"></i><span>Planner</span></a>
+            <a href="#" class="nav-item timer-nav"><div class="timer-btn"><i class="fa-solid fa-stopwatch"></i></div></a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-layer-group"></i><span>Cards</span></a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-user-group"></i><span>Groups</span></a>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
