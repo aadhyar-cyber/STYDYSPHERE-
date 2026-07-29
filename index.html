@@ -118,6 +118,24 @@
             <a href="#" class="nav-item"><i class="fa-solid fa-layer-group"></i><span>Cards</span></a>
             <a href="#" class="nav-item"><i class="fa-solid fa-user-group"></i><span>Groups</span></a>
         </nav>
+        <!-- Pomodoro Timer Modal -->
+        <div class="modal-overlay" id="pomodoroModal">
+            <div class="modal-content glass-card">
+                <button class="close-btn" id="closeTimerBtn"><i class="fa-solid fa-xmark"></i></button>
+                <h2>Focus Timer</h2>
+                <div class="timer-display">
+                    <svg class="progress-ring" width="200" height="200">
+                        <circle class="progress-ring__circle" stroke="var(--primary-blue)" stroke-width="8" fill="transparent" r="90" cx="100" cy="100"/>
+                    </svg>
+                    <div class="time-left" id="timeLeft">25:00</div>
+                </div>
+                <div class="timer-controls">
+                    <button class="btn-primary" id="startTimerBtn">Start Focus</button>
+                    <button class="icon-btn" id="resetTimerBtn"><i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="app.js"></script>

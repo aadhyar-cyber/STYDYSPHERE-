@@ -65,17 +65,85 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Bottom Navigation interactions
-    const navItems = document.querySelectorAll('.nav-item');
+    // Pomodoro Timer Logic
+    const timerBtn = document.querySelector('.timer-nav');
+    const pomodoroModal = document.getElementById('pomodoroModal');
+    const closeTimerBtn = document.getElementById('closeTimerBtn');
+    const startTimerBtn = document.getElementById('startTimerBtn');
+    const resetTimerBtn = document.getElementById('resetTimerBtn');
+    const timeLeftDisplay = document.getElementById('timeLeft');
+    const circle = document.querySelector('.progress-ring__circle');
+    
+    // Circle math
+    const radius = circle.r.baseVal.value;
+    const circumference = radius * 2 * Math.PI;
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.style.strokeDashoffset = 0;
+
+    let timerInterval;
+    let timeLeft = 25 * 60; // 25 minutes in seconds
+    let isRunning = false;
+
+    function setProgress(percent) {
+        const offset = circumference - percent / 100 * circumference;
+        circle.style.strokeDashoffset = offset;
+    }
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        if (seconds < 10) seconds = `0${seconds}`;
+        timeLeftDisplay.textContent = `${minutes}:${seconds}`;
+        
+        // Update circle progress
+        const percent = ((25 * 60 - timeLeft) / (25 * 60)) * 100;
+        setProgress(percent);
+    }
+
+    timerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        pomodoroModal.classList.add('active');
+    });
+
+    closeTimerBtn.addEventListener('click', () => {
+        pomodoroModal.classList.remove('active');
+    });
+
+    startTimerBtn.addEventListener('click', () => {
+        if (!isRunning) {
+            isRunning = true;
+            startTimerBtn.textContent = 'Pause';
+            timerInterval = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(timerInterval);
+                    isRunning = false;
+                    startTimerBtn.textContent = 'Start Focus';
+                    alert("Focus session complete! Take a break.");
+                }
+            }, 1000);
+        } else {
+            clearInterval(timerInterval);
+            isRunning = false;
+            startTimerBtn.textContent = 'Resume';
+        }
+    });
+
+    resetTimerBtn.addEventListener('click', () => {
+        clearInterval(timerInterval);
+        isRunning = false;
+        timeLeft = 25 * 60;
+        startTimerBtn.textContent = 'Start Focus';
+        updateTimerDisplay();
+    });
+
+    // Bottom Navigation interactions (minus timer)
+    const navItems = document.querySelectorAll('.nav-item:not(.timer-nav)');
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            if (item.classList.contains('timer-nav')) {
-                alert('Pomodoro Timer starting soon!');
-                return;
-            }
-            
             navItems.forEach(nav => nav.classList.remove('active'));
             item.classList.add('active');
         });
